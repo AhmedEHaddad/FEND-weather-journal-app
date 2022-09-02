@@ -21,6 +21,25 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 
+/*API Endpoints*/
+// get route
+app.get('/api', (req, res) => {
+    //res.send('Hello world');
+    //res.json(projectData);
+    res.send(projectData);
+});
+
+//post route
+//const data = [];
+app.post('/api', addData);
+
+function addData(req, res) {
+  //data.push(req.body);
+  projectData['date'] = req.body.date;
+  projectData['temp'] = req.body.temp;
+  projectData['content'] = req.body.content;
+  res.send(projectData);
+}
 
 // Setup Server
 const port = 8000;
