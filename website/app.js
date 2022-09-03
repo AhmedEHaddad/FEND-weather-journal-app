@@ -92,9 +92,9 @@ const postData = async ( url = '', data = {})=>{
       const allData = await request.json()
       
       // update new  values
-      document.getElementById('date').innerHTML = allData.date;
-      document.getElementById('temp').innerHTML = allData.temp;
-      document.getElementById('content').innerHTML = allData.content;
+      document.getElementById('date').innerHTML = allData[0].date;
+      document.getElementById('temp').innerHTML = allData[0].temp;
+      document.getElementById('content').innerHTML = allData[0].content;
     }
     catch (error) {
       console.log("error", error);
