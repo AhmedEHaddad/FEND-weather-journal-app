@@ -5,12 +5,12 @@ const button = document.getElementById('generate')
 
 // HTML elements to get the values
 const zip = document.getElementById('zip')
-const feelings = document.getElementById('feelings')
+//const feelings = document.getElementById('feelings')
 
 // HTML elements to update dynamically
 const date = document.getElementById('date')
 const temp = document.getElementById('temp')
-const content = document.getElementById('content')
+//const content = document.getElementById('content')
 
 
 //OpenWeatherMap API key
@@ -31,12 +31,12 @@ function performAction(e) {
     e.preventDefault();
     // get user input values
     const newZip = document.getElementById('zip').value;
-    const content = document.getElementById('feelings').value;
+    const feelings = document.getElementById('feelings').value;
   
     getWeatherInfo(newZip)
-      .then(function (userData) {
+      .then(function (apiData) {
         // add data to POST request
-        postData('/api', { date: newDate, temp: userData.main.temp, content })
+        postData('/api', { date: newDate, temp: apiData.main.temp, feelings })
       }).then(function (newData) {
         // update browser content
         updateUI()
@@ -51,8 +51,8 @@ const getWeatherInfo = async (zip) => {
 await fetch(`${baseUrl}?zip=${zip}&units=imperial&APPID=${apiKey}`);
 try {
     // result of fetch function
-    const userData = await res.json();
-    return userData;
+    const apiData = await res.json();
+    return apiData;
   } catch (error) {
     console.log("error", error);
   }
