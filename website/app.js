@@ -1,15 +1,15 @@
 /* Global Variables */
-
+const form = document.querySelector('.form');
 // HTML element to listen for click events
-const button = document.getElementById('generate')
+const button = document.getElementById('generate');
 
 // HTML elements to get the values
-const zip = document.getElementById('zip')
+const zip = document.getElementById('zip');
 //const feelings = document.getElementById('feelings')
 
 // HTML elements to update dynamically
-const date = document.getElementById('date')
-const temp = document.getElementById('temp')
+const date = document.getElementById('date');
+const temp = document.getElementById('temp');
 //const content = document.getElementById('content')
 
 
@@ -48,9 +48,9 @@ function performAction(e) {
 /* get route */
 // GET weather API data
 const getWeatherInfo = async (zip) => {
-await fetch(`${baseUrl}?zip=${zip}&units=imperial&APPID=${apiKey}`);
+await fetch(`${baseURL}?zip=${zip}&units=metric&appid=${apiKey}`);
 try {
-    // result of fetch function
+    //apiData  result of the fetch function
     const apiData = await res.json();
     return apiData;
   } catch (error) {
