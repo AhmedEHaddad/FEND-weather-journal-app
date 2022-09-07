@@ -4,7 +4,13 @@ body{
 }
 
 #app{
-    display: grid;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+    /* display: grid; */
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
@@ -22,10 +28,21 @@ body{
 
 .entry{
     background: rgba(59, 74, 107, .4);
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    height: 13rem;
+    text-shadow: 0 0.3rem 1rem rgba(0,0,0,0.7);
+    
 }
 
 #entryHolder{
-
+  align-items: center;
+  display: flex;
+  font-size: 1.2rem;
+  justify-content: space-evenly;
+  padding: 2rem 0;
 }
 
 #date{
@@ -82,6 +99,12 @@ input{
     transition: all 0.1s;
     width: 50%;
   }
+#generate:active {
+    transform: translateY(0);
+  }
+  
+#generate:hover {
+    transform: translateY(-0.2rem);
 
 button{
     width: 400px;
