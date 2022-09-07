@@ -15,6 +15,7 @@ const temp = document.getElementById('temp');
 
 //OpenWeatherMap API key
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
+// const baseURL = 'https://api.openweathermap.org/data/3.0/onecall'
 const apiKey = 'cb1bcbb049c4632e066ef5d9f01d6e53';
 
 
@@ -33,7 +34,7 @@ function performAction(e) {
     const newZip = document.getElementById('zip').value;
     const feelings = document.getElementById('feelings').value;
   
-    getWeatherInfo(newZip)
+    getWeatherInfo(baseURL,newZip, apiKey)
       .then(function (apiData) {
         // add data to POST request
         postData('/api', { date: newDate, temp: apiData.main.temp, feelings })
@@ -46,9 +47,12 @@ function performAction(e) {
   }
 
 /* get route */
+// const lat = 40.7143;
+// const lon = -74.006;
 // GET weather API data
-const getWeatherInfo = async (zip) => {
-await fetch(`${baseURL}?zip=${zip}&units=metric&appid=${apiKey}`);
+const getWeatherInfo = async (baseURL,zip,apiKey) => {
+// await fetch(`${baseURL}?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+const res = await fetch(`${baseURL}?zip=${zip}&appid=${apiKey}&units=metric`);
 try {
     //apiData  result of the fetch function
     const apiData = await res.json();

@@ -64,6 +64,25 @@ input{
     border: none;
 }
 
+#generate {
+    background: var(--color-accent);
+    border: 0.2rem solid var(--color-dark);
+    border-radius: 2rem;
+    box-shadow: 1rem 1rem 2rem #444;
+    color: var(--color-dark);
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 8rem;
+    letter-spacing: 0.2rem;
+    margin-top: 3rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    transition: all 0.1s;
+    width: 50%;
+  }
+
 button{
     width: 400px;
     height: 100px;
