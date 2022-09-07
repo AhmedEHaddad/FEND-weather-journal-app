@@ -77,7 +77,7 @@ const postData = async ( url = '', data = {})=>{
       body: JSON.stringify({
         date: data.date,
         temp: data.temp,
-        content: data.content
+        content: data.feelings
       }),
     });
 

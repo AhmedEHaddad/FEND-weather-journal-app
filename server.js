@@ -37,7 +37,7 @@ function addData(req, res) {
   //data.push(req.body);
   projectData['date'] = req.body.date;
   projectData['temp'] = req.body.temp;
-  projectData['content'] = req.body.content;
+  projectData['content'] = req.body.feelings;
   res.send(projectData);
 }
 
