@@ -97,7 +97,7 @@ const postData = async ( url = '', data = {})=>{
       
       // update new  values
       document.getElementById('date').innerHTML = allData.date;
-      document.getElementById('temp').innerHTML = Math.round(allData.temp)+ 'degrees';
+      document.getElementById('temp').innerHTML = Math.round(allData.temp)+ ' degrees';
       document.getElementById('content').innerHTML = allData.content;
     }
     catch (error) {
