@@ -37,7 +37,7 @@ function addData(req, res) {
   //data.push(req.body);
   projectData['date'] = req.body.date;
   projectData['temp'] = req.body.temp;
-  projectData['content'] = req.body.feelings;
+  projectData['content'] = req.body.content;
   res.send(projectData);
 }
 
@@ -46,5 +46,5 @@ const port = 8000;
 const server = app.listen(port, listening);
 function listening(){
     console.log("server running"); 
-    console.log(`running on localhost: {$port}`);
+    console.log(`running on localhost: ${port}`);
 }
