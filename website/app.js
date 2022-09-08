@@ -16,13 +16,13 @@ const temp = document.getElementById('temp');
 //OpenWeatherMap API key
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
 // const baseURL = 'https://api.openweathermap.org/data/3.0/onecall'
-const apiKey = 'cb1bcbb049c4632e066ef5d9f01d6e53';
+const apiKey = 'cb1bcbb049c4632e066ef5d9f01d6e53&units=metric';
 
 
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = (d.getMonth()+1)+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 /* add functionallity to generate button */
 // add eventlistener to button
@@ -52,7 +52,7 @@ function performAction(e) {
 // GET weather API data
 const getWeatherInfo = async (baseURL,zip,apiKey) => {
 // await fetch(`${baseURL}?lat=${lat}&lon=${lon}&appid=${apiKey}`);
-const res = await fetch(`${baseURL}?zip=${zip}&appid=${apiKey}&units=metric`);
+const res = await fetch(`${baseURL}?zip=${zip}&appid=${apiKey}`);
 try {
     //apiData  result of the fetch function
     const apiData = await res.json();
@@ -97,7 +97,7 @@ const postData = async ( url = '', data = {})=>{
       
       // update new  values
       document.getElementById('date').innerHTML = allData.date;
-      document.getElementById('temp').innerHTML = allData.temp;
+      document.getElementById('temp').innerHTML = Math.round(allData.temp)+ 'degrees';
       document.getElementById('content').innerHTML = allData.content;
     }
     catch (error) {
